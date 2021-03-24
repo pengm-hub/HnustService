@@ -63,7 +63,7 @@
         <!--普通导航-->
         <div class="left_yh font16" id="pageNav">
             <a href="${ctx}/login/uIndex">首页</a>
-            <a href="${ctx}/news/list">Web Api</a>
+            <a href="${ctx}/webapi/webApiList">Web Api</a>
             <a href="${ctx}/message/add">Mashup</a>
             <a href="${ctx}/news/list">服务网络</a>
             <a href="${ctx}/message/add">相关成果</a>

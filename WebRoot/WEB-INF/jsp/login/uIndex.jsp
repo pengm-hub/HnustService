@@ -11,38 +11,84 @@
 </head>
 <body>
     <%@include file="/common/utop.jsp"%>
-<!--轮动广告-->
-<%--<div class="width1200 center_yh hidden_yh" style="position: relative;z-index:80;">--%>
-<%--    <div class="example2" style="width: 1200px;height: 490px;overflow: hidden;margin-left: 200px;">--%>
-<%--        <ul>--%>
-<%--            <li><img src="${ctx}/resource/images/a.jpg" alt=""></li>--%>
-<%--            <li><img src="${ctx}/resource/images/b.jpg" alt=""></li>--%>
-<%--            <li><img src="${ctx}/resource/images/c.jpg" alt=""></li>--%>
-<%--            <li><img src="${ctx}/resource/images/d.jpg" alt=""></li>--%>
-<%--        </ul>--%>
-<%--    </div>--%>
-<%--    <script>--%>
-<%--        $(function () {--%>
-<%--            $(".example2").luara({width:"966",height:"490",interval:4500,selected:"seleted",deriction:"left"});--%>
-<%--        });--%>
-<%--    </script>--%>
-<%--</div>--%>
-
 <!--热门商品-->
 <div class="width1200 center_yh hidden_yh">
     <div class="width100" style="height: 45px;line-height: 45px;border-bottom: 2px solid #dd4545; margin-top: 10px;">
         <font class="left_yh font20">标签云</font>
     </div>
-    <div class="width100 hidden_yh" style="height: 480px;">
-        <div class="normalPic">
-            <c:forEach items="${rxs}" var="data" varStatus="l">
-                <a href="${ctx}/item/view?id=${data.id}">
-                    <img src="${data.url1}" height="180" alt="" style="margin:0 auto">
-                    <h3 class="yihang c_33 font14 font100" style="padding-left: 0px;padding-right: 0px;">${data.name}  ${data.price}</h3>
-                </a>
-            </c:forEach>
-        </div>
-    </div>
+<%--    <div class="width100 hidden_yh" style="height: 480px;">--%>
+<%--        <div class="normalPic">--%>
+<%--            <c:forEach items="${rxs}" var="data" varStatus="l">--%>
+<%--                <a href="${ctx}/item/view?id=${data.id}">--%>
+<%--                    <img src="${data.url1}" height="180" alt="" style="margin:0 auto">--%>
+<%--                    <h3 class="yihang c_33 font14 font100" style="padding-left: 0px;padding-right: 0px;">${data.name}  ${data.price}</h3>--%>
+<%--                </a>--%>
+<%--            </c:forEach>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+
+    <script>
+        var chart = echarts.init(document.getElementById('main'));
+
+        var option = {
+            tooltip: {},
+            series: [ {
+                type: 'wordCloud',
+                gridSize: 2,
+                sizeRange: [12, 50],
+                rotationRange: [-90, 90],
+                shape: 'pentagon',
+                width: 600,
+                height: 400,
+                drawOutOfBound: true,
+                textStyle: {
+                    color: function () {
+                        return 'rgb(' + [
+                            Math.round(Math.random() * 160),
+                            Math.round(Math.random() * 160),
+                            Math.round(Math.random() * 160)
+                        ].join(',') + ')';
+                    }
+                },
+                emphasis: {
+                    textStyle: {
+                        shadowBlur: 10,
+                        shadowColor: '#333'
+                    }
+                },
+                data:[
+                    {
+                        name: 'example',
+                        value: 1,
+                        textStyle: {
+                            color: 'black'
+                        },
+                        emphasis: {
+                            textStyle: {
+                                color: 'red'
+                            }
+                        }
+                    },
+                    ${apiTag}
+                ]
+            } ]
+        };
+
+        chart.setOption(option);
+        alert(apiTag);
+        window.onresize = chart.resize;
+    </script>
+
+
+    <style>
+        html, body, #main {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+    <div id='main' style="width: 800px; margin: 0px auto; height: 500px; border: 1px solid #ffffff; "></div>
+
 </div>
     <%@include file="/common/ufooter.jsp"%>
 </body>

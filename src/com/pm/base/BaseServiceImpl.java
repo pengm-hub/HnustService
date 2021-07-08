@@ -33,27 +33,27 @@ public abstract  class BaseServiceImpl<T> implements BaseService<T>{
 	}
 	
 	
-	/**
-	 * 通过实体删除
-	 */
-	public void deleteByEntity(T entity) {
-		this.getBaseDao().deleteByEntity(entity);		
-	}
-
-	/**
-	 * 通过map删除
-	 */
-	public void deleteByMap(Map<String, Object> params) {
-		this.getBaseDao().deleteByMap(params);
-	}
-
-	/**  
-     * 更新一个实体  
-     * @param entity  
-     */
-	public void update(T entity) {
-		this.getBaseDao().update(entity);
-	}
+//	/**
+//	 * 通过实体删除
+//	 */
+//	public void deleteByEntity(T entity) {
+//		this.getBaseDao().deleteByEntity(entity);
+//	}
+//
+//	/**
+//	 * 通过map删除
+//	 */
+//	public void deleteByMap(Map<String, Object> params) {
+//		this.getBaseDao().deleteByMap(params);
+//	}
+//
+//	/**
+//     * 更新一个实体
+//     * @param entity
+//     */
+//	public void update(T entity) {
+//		this.getBaseDao().update(entity);
+//	}
 	
 	 
     /**
@@ -63,12 +63,12 @@ public abstract  class BaseServiceImpl<T> implements BaseService<T>{
          this.getBaseDao().updateById(entity);		
 	}
 	
-	 /**
-     * 根据参数查询
-     */
-	public List<T> listByMap(Map<String, Object> params) {
-		return this.getBaseDao().listByMap(params);
-	}
+//	 /**
+//     * 根据参数查询
+//     */
+//	public List<T> listByMap(Map<String, Object> params) {
+//		return this.getBaseDao().listByMap(params);
+//	}
 
 	 /**  
      * 查询所有实体  
@@ -78,21 +78,21 @@ public abstract  class BaseServiceImpl<T> implements BaseService<T>{
 		return this.getBaseDao().listAll();
 	}
 	
-	 /**  
-     * 查询所有实体,根据实体属性值为判断条件查询所有实体，  
-     * @param entity  
-     * @return  
-     */
-	public List<T> listAllByEntity(T entity) {
-		return this.getBaseDao().listAllByEntity(entity);
-	}
-	
-	 /**  
-     * 根据主键获取一个实体
-     */  
-	public T load(Serializable id) {
-		return this.getBaseDao().load(id);
-	}
+//	 /**
+//     * 查询所有实体,根据实体属性值为判断条件查询所有实体，
+//     * @param entity
+//     * @return
+//     */
+//	public List<T> listAllByEntity(T entity) {
+//		return this.getBaseDao().listAllByEntity(entity);
+//	}
+//
+//	 /**
+//     * 根据主键获取一个实体
+//     */
+//	public T load(Serializable id) {
+//		return this.getBaseDao().load(id);
+//	}
 	
 	/**
      * 根据主键获取一个实体
@@ -103,14 +103,14 @@ public abstract  class BaseServiceImpl<T> implements BaseService<T>{
 		return this.getBaseDao().getById(id);
 	}
 
-	 /**
-     * 通过map查询
-     * @param params
-     * @return
-     */
-	public T getByMap(Map<String, Object> params) {
-		return this.getBaseDao().getByMap(params);
-	}
+//	 /**
+//     * 通过map查询
+//     * @param params
+//     * @return
+//     */
+//	public T getByMap(Map<String, Object> params) {
+//		return this.getBaseDao().getByMap(params);
+//	}
 
 	/**
      * 通过对象查询
@@ -172,31 +172,31 @@ public abstract  class BaseServiceImpl<T> implements BaseService<T>{
     }
 
 
-	/**
-	 * 批量新增
-	 */
-	 public void insertBatch(List<T> list) {
-		 this.getBaseDao().insertBatch(list);
-	}
-
-	 /**
-	  * 批量删除
-	  */
-	public void updateBatch(List<T> list) {
-		 this.getBaseDao().updateBatch(list);
-	}
+//	/**
+//	 * 批量新增
+//	 */
+//	 public void insertBatch(List<T> list) {
+//		 this.getBaseDao().insertBatch(list);
+//	}
+//
+//	 /**
+//	  * 批量删除
+//	  */
+//	public void updateBatch(List<T> list) {
+//		 this.getBaseDao().updateBatch(list);
+//	}
 
 	//=====================自定义sql=========================================
 	
-	 /**
-     * 查询一个对象返回map
-     * @param sql
-     * @return
-     */
-	public Map<String, Object> getBySql(String sql) {
-		
-		return  this.getBaseDao().getBySqlReturnMap(sql);
-	}
+//	 /**
+//     * 查询一个对象返回map
+//     * @param sql
+//     * @return
+//     */
+//	public Map<String, Object> getBySql(String sql) {
+//
+//		return  this.getBaseDao().getBySqlReturnMap(sql);
+//	}
 
 	/**
      * 查询一个对象返回实体类
@@ -207,14 +207,14 @@ public abstract  class BaseServiceImpl<T> implements BaseService<T>{
 		return this.getBaseDao().getBySqlReturnEntity(sql);
 	}
 
-	 /**
-     * 查询列表返回map
-     * @param sql
-     * @return
-     */
-	public List<Map<String, Object>> listBySqlReturnMap(String sql) {
-		return this.getBaseDao().listBySqlReturnMap(sql);
-	}
+//	 /**
+//     * 查询列表返回map
+//     * @param sql
+//     * @return
+//     */
+//	public List<Map<String, Object>> listBySqlReturnMap(String sql) {
+//		return this.getBaseDao().listBySqlReturnMap(sql);
+//	}
 
 	
 	 /**

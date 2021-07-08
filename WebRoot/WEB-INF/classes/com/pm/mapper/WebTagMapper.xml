@@ -27,30 +27,10 @@
         <if test="tag_mashups != null"> and tag_mashups=#{tag_mashups}</if>
     </sql>
 
-
-    <!-- 根据参数查询-->
-    <select id="listByMap" resultMap="ResultMapWebTag" parameterType="map">
-        select <include refid="WebTag_field"/>
-        from webtag where <include refid="WebTag_where"/>
-    </select>
-
     <!-- 查询整个表 -->
     <select id="listAll" resultMap="ResultMapWebTag">
         select <include refid="WebTag_field"/>
         from webtag
-    </select>
-
-    <!-- 查询所有实体,根据实体属性值为判断条件查询所有实体-->
-    <select id="listAllByEntity" resultMap="ResultMapWebTag" parameterType="com.pm.po.WebTag">
-        select <include refid="WebTag_field"/>
-        from webtag where
-        <include refid="WebTag_where"/>
-    </select>
-
-    <!-- 根据主键获取一个实体-->
-    <select id="load" resultMap="ResultMapWebTag" parameterType="java.lang.Integer">
-        select <include refid="WebTag_field"/>
-        from webtag where tag_id=#{tag_id}
     </select>
 
     <!-- 根据主键获取一个实体-->
@@ -59,18 +39,10 @@
         from webtag where tag_id=#{tag_id}
     </select>
 
-    <!-- 通过map查询-->
-    <select id="getByMap" resultMap="ResultMapWebTag" parameterType="map">
-        select <include refid="WebTag_field"/>
-        from webtag where
-        <include refid="WebTag_where"/>
-    </select>
-
-    <!--通过对象查询-不分页-->
+    <!-- 根据实体获取一个实体-->
     <select id="getByEntity" resultMap="ResultMapWebTag" parameterType="com.pm.po.WebTag">
         select <include refid="WebTag_field"/>
-        from webtag where
-        <include refid="WebTag_where"/>
+        from webtag where 1=1 <include refid="WebTag_where"/>
     </select>
 
     <!-- 通过map查询分页-->
@@ -88,18 +60,9 @@
     </select>
 
     <!-- 封装纯sql语法-->
-    <!-- 查询一个对象返回map-->
-    <select id="getBySqlReturnMap" resultType="map">
-        ${sql}
-    </select>
 
     <!-- 查询一个对象返回实体类-->
     <select id="getBySqlReturnEntity" resultMap="ResultMapWebTag">
-        ${sql}
-    </select>
-
-    <!-- 查询一个对象返回map列表-->
-    <select id="listBySqlReturnMap" resultType="map">
         ${sql}
     </select>
 

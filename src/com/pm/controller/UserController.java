@@ -1,9 +1,7 @@
 package com.pm.controller;
 
 import com.pm.base.BaseController;
-import com.pm.po.ItemCategory;
 import com.pm.po.User;
-import com.pm.service.ItemCategoryService;
 import com.pm.service.UserService;
 import com.pm.utils.Consts;
 import com.pm.utils.Pager;
@@ -28,22 +26,19 @@ public class UserController extends BaseController {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private ItemCategoryService itemCategoryService;
-
-    @RequestMapping("/findBySql")
-    public String findBySql(Model model,User user){
-        String sql = "select * from user where 1=1 ";
-        if(!isEmpty(user.getUserName())){
-            sql += " and userName like '%"+user.getUserName()+"%' ";
-        }
-        sql+=" order by id";
-        Pager<User> pagers = userService.findBySqlRerturnEntity(sql);
-        model.addAttribute("pagers",pagers);
-        model.addAttribute("obj",user);
-        return "user/user";
-    }
+//
+//    @RequestMapping("/findBySql")
+//    public String findBySql(Model model,User user){
+//        String sql = "select * from user where 1=1 ";
+//        if(!isEmpty(user.getUserName())){
+//            sql += " and userName like '%"+user.getUserName()+"%' ";
+//        }
+//        sql+=" order by id";
+//        Pager<User> pagers = userService.findBySqlRerturnEntity(sql);
+//        model.addAttribute("pagers",pagers);
+//        model.addAttribute("obj",user);
+//        return "user/user";
+//    }
 
     /**
      * 查看用户信息
@@ -58,8 +53,8 @@ public class UserController extends BaseController {
             return "redirect:/login/uLogin";
         }
         Integer userId = Integer.valueOf(attribute.toString());
-        User obj = userService.load(userId);
-        model.addAttribute("obj",obj);
+        User user = userService.getById(userId);
+        model.addAttribute("obj",user);
         return "user/view";
     }
 
@@ -69,21 +64,15 @@ public class UserController extends BaseController {
      * @param request
      * @return
      */
-    @RequestMapping("/myUpload")
-    public String myUpload(Model model, HttpServletRequest request){
-        Object attribute = request.getSession().getAttribute(Consts.USERID);
-        if(attribute==null){
-            return "redirect:/login/uLogin";
-        }
-
-        String sql = "select * from item_category where pid is null order by id";
-        List<ItemCategory> listBySqlReturnEntity = itemCategoryService.listBySqlReturnEntity(sql);
-        Integer userId = Integer.valueOf(attribute.toString());
-        User obj = userService.load(userId);
-        model.addAttribute("obj",obj);
-        model.addAttribute("types",listBySqlReturnEntity);
-        return "user/myUpload";
-    }
+//    @RequestMapping("/myUpload")
+//    public String myUpload(Model model, HttpServletRequest request){
+//        Object attribute = request.getSession().getAttribute(Consts.USERID);
+//        if(attribute==null){
+//            return "redirect:/login/uLogin";
+//        }
+//
+//        return "user/myUpload";
+//    }
 
     /**
      * 执行修改用户信息的操作
@@ -94,6 +83,9 @@ public class UserController extends BaseController {
         if(attribute==null){
             return "redirect:/login/uLogin";
         }
+        System.out.println("========================================");
+        System.out.println(user);
+        System.out.println("========================================");
         user.setId(Integer.valueOf(attribute.toString()));
         userService.updateById(user);
         return "redirect:/user/view.action";
@@ -106,10 +98,10 @@ public class UserController extends BaseController {
      * @param request
      * @return
      */
-    @RequestMapping("/myWork")
-    public String myWork(Model model, HttpServletRequest request){
-
-        return "user/myWork";
-    }
+//    @RequestMapping("/myWork")
+//    public String myWork(Model model, HttpServletRequest request){
+//
+//        return "user/myWork";
+//    }
 
 }

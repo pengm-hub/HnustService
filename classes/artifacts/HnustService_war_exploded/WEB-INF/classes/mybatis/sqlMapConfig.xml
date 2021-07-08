@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     </settings> 
 	<typeAliases>
 		<!-- 批量扫描别名：sql里面可以使用对象（JavaBean/POJO），一个对象（类）可以针对数据库中的一个表，也就是把数据库表映射成了一个JavaBean -->
-		<package name="com.pmdraw.po"/>
+		<package name="com.pm.po"/>
 	</typeAliases>
 
  <plugins>

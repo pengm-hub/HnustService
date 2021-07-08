@@ -4,29 +4,57 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>用户登录</title>
-    <link type="text/css" rel="stylesheet" href="${ctx}/resource/user/css/style.css">
-    <script src="${ctx}/resource/user/js/jquery-1.8.3.min.js"></script>
-    <script src="${ctx}/resource/user/js/jquery.luara.0.0.1.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="${ctx}/resource/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="${ctx}/resource/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="${ctx}/resource/css/magnific-popup.css">
+    <link rel="stylesheet" href="${ctx}/resource/css/select2.min.css">
+    <link rel="stylesheet" href="${ctx}/resource/css/admin.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="${ctx}/resource/icon/favicon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="${ctx}/resource/icon/favicon-32x32.png">
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Dmitry Volkov">
+    <title>Web Service</title>
+
 </head>
 <body>
-<div class="width100 hidden_yh" style="height: 573px;background: url('${ctx}/resource/user/images/bj.jpg') no-repeat center">
-    <div class="width1200 hidden_yh center_yh" style="margin-top: 75px">
-        <div class="right_yh bj_fff" style="width:408px;height: 438px;">
-            <form action="${ctx}/login/utoLogin" method="post">
-                <h3 class="tcenter font30 c_33" style="font-weight: 100;margin-top: 36px;margin-bottom: 36px;">账户登录</h3>
-                <div class="center_yh hidden_yh" style="width: 336px;">
-                    <div class="width100 box-sizing hidden_yh" style="height: 44px;border:1px solid #c9c9c9;margin-bottom: 34px;">
-                        <img src="${ctx}/resource/user/images/rw.jpg" alt="" class="left_yh" width="42" height="42">
-                        <input type="text" placeholder="请输入用户名或手机号" name="userName" value="" style="border: 0;width: 292px;height: 42px; font-size: 16px;text-indent: 22px;">
-                    </div>
-                    <div class="width100 box-sizing hidden_yh" style="height: 44px;border:1px solid #c9c9c9;margin-bottom: 34px;">
-                        <img src="${ctx}/resource/user/images/pass.jpg" alt="" class="left_yh" width="42" height="42">
-                        <input type="password" placeholder="请输入密码" name="passWord" value="" style="border: 0;width: 292px;height: 42px; font-size: 16px;text-indent: 22px;">
-                    </div>
-                    <input type="submit" value="登录" class="center_yh" style="width: 100%;height: 43px;font-size: 16px;background: #dd4545;outline: none;border: 0;color: #fff; cursor:pointer;">
+<div class="sign section--bg" data-bg="img/bg.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="sign__content">
+                    <form action="${ctx}/login/utoLogin" method="post" class="sign__form">
+                        <h1 style="color: #fff;margin-bottom: 20px">Login</h1>
+                        <div class="sign__group">
+                            <p style="color: #fff">UserName:</p>
+                            <input type="text" class="sign__input" placeholder="UserName" name="userName">
+                        </div>
+
+                        <div class="sign__group">
+                            <p style="color: #fff">Password:</p>
+                            <input type="password" class="sign__input" placeholder="Password" name="passWord">
+                        </div>
+
+                        <!--<div class="sign__group sign__group--checkbox">
+                            <input id="remember" name="remember" type="checkbox" checked="checked">
+                            <label for="remember">Remember me</label>
+                        </div> -->
+
+                        <button class="sign__btn" type="submit">Sign in</button>
+                        <span class="sign__text">Don't have an account? <a href="${ctx}/login/res">Sign up!</a></span>
+
+                        <span class="sign__text"><a href="${ctx}/login/res">Forgot password?</a></span>
+<%--                            <input type="submit" value="登录" class="center_yh" style="width: 100%;height: 43px;font-size: 16px;background: #dd4545;outline: none;border: 0;color: #fff; cursor:pointer;">--%>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>

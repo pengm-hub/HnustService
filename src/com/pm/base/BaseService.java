@@ -20,33 +20,33 @@ public interface BaseService<T> {
      */  
     void deleteById(Serializable id);  
     
-    /**  
-     * 更新一个实体  
-     * @param entity  
-     */  
-    void update(T entity);   
+//    /**
+//     * 更新一个实体
+//     * @param entity
+//     */
+//    void update(T entity);
     
     /**
      * 通过id进行修改
      */
     void updateById(T entity);
     
-    /**
-     * 通过实体删除
-     * @param entity
-     */
-    void deleteByEntity(T entity);
-    
-    /**
-     * 通过map删除
-     * @param params
-     */
-    void deleteByMap(Map<String,Object> params);
-    
-    /**
-     * 根据参数查询
-     */
-    public List<T> listByMap(Map<String,Object> params);
+//    /**
+//     * 通过实体删除
+//     * @param entity
+//     */
+//    void deleteByEntity(T entity);
+//
+//    /**
+//     * 通过map删除
+//     * @param params
+//     */
+//    void deleteByMap(Map<String,Object> params);
+//
+//    /**
+//     * 根据参数查询
+//     */
+//    public List<T> listByMap(Map<String,Object> params);
     
     /**  
      * 查询所有实体  
@@ -54,18 +54,18 @@ public interface BaseService<T> {
      */  
     List<T> listAll();  
   
-    /**  
-     * 查询所有实体,根据实体属性值为判断条件查询所有实体，  
-     * @param entity  
-     * @return  
-     */  
-    List<T> listAllByEntity(T entity);  
-      
-    /**  
-     * 根据主键获取一个实体
-     * @return  
-     */  
-    T load(Serializable id); 
+//    /**
+//     * 查询所有实体,根据实体属性值为判断条件查询所有实体，
+//     * @param entity
+//     * @return
+//     */
+//    List<T> listAllByEntity(T entity);
+//
+//    /**
+//     * 根据主键获取一个实体
+//     * @return
+//     */
+//    T load(Serializable id);
     
     /**
      * 根据主键获取一个实体
@@ -74,13 +74,13 @@ public interface BaseService<T> {
      */
     T getById(Serializable id);
     
-    /**
-     * 通过map查询
-     * @param params
-     * @return
-     */
-    T getByMap(Map<String,Object> params);
-    
+//    /**
+//     * 通过map查询
+//     * @param params
+//     * @return
+//     */
+//    T getByMap(Map<String,Object> params);
+
     /**
      * 通过对象查询
      * @param entity
@@ -103,27 +103,27 @@ public interface BaseService<T> {
      */
     public Pager<T> findByEntity(T entity);
     
-    /**
-     * 批量新增
-     * @param list
-     */
-    public void insertBatch(List<T> list);
-    
-    /**
-     * 批量修改
-     * @param list
-     */
-    public void updateBatch(List<T> list);
+//    /**
+//     * 批量新增
+//     * @param list
+//     */
+//    public void insertBatch(List<T> list);
+//
+//    /**
+//     * 批量修改
+//     * @param list
+//     */
+//    public void updateBatch(List<T> list);
     
     
     //============================通过sql=========================================
     
-    /**
-     * 查询一个对象返回map
-     * @param sql
-     * @return
-     */
-    public Map<String,Object> getBySql(@Param("sql")String sql);
+//    /**
+//     * 查询一个对象返回map
+//     * @param sql
+//     * @return
+//     */
+//    public Map<String,Object> getBySql(@Param("sql")String sql);
     
     /**
      * 查询一个对象返回实体类
@@ -132,12 +132,12 @@ public interface BaseService<T> {
      */
     public T getBySqlReturnEntity(@Param("sql")String sql);
     
-    /**
-     * 查询列表返回map
-     * @param sql
-     * @return
-     */
-    public List<Map<String,Object>> listBySqlReturnMap(@Param("sql")String sql);
+//    /**
+//     * 查询列表返回map
+//     * @param sql
+//     * @return
+//     */
+//    public List<Map<String,Object>> listBySqlReturnMap(@Param("sql")String sql);
     
     /**
      * 查询列表返回实体

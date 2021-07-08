@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pm.mapper.MashupMapper">
+
+    <resultMap id="ResultMapMashup" type="com.pm.po.Mashup">
+        <result property="mashup_id" column="mashup_id" jdbcType="INTEGER"/>
+        <result property="mashup_name" column="mashup_name" jdbcType="VARCHAR"/>
+        <result property="mashup_tags" column="mashup_tags" jdbcType="VARCHAR"/>
+        <result property="mashup_apis" column="mashup_apis" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Mashup_field">
+        mashup_id,mashup_name,mashup_tags,mashup_apis
+    </sql>
+
+    <sql id="Mashup_insert">
+        #{mashup_id},#{mashup_name},#{mashup_tags},#{mashup_apis}
+    </sql>
+
+    <!--查询时条件-->
+    <sql id="Mashup_Where">
+        <if test="mashup_id != null">and mashup_id = #{mashup_id}</if>
+        <if test="mashup_name != null">and mashup_name = #{mashup_name}</if>
+        <if test="mashup_tags != null">and mashup_tags = #{mashup_tags}</if>
+        <if test="mashup_apis != null">and mashup_apis = #{mashup_apis}</if>
+    </sql>
+
+    <select id="listAll" resultMap="ResultMapMashup">
+        select <include refid="Mashup_field"/>
+        from mashup
+    </select>
+
+    <!-- 根据主键获取一个实体-->
+    <select id="getById" resultMap="ResultMapMashup" parameterType="java.lang.Integer">
+        select <include refid="Mashup_field"/>
+        from mashup where mashup_id=#{mashup_id}
+    </select>
+
+    <!-- 根据实体获取一个实体-->
+    <select id="getByEntity" resultMap="ResultMapMashup" parameterType="com.pm.po.Mashup">
+        select <include refid="Mashup_field"/>
+        from mashup where 1=1 <include refid="Mashup_Where"/>
+    </select>
+
+    <!-- 通过map查询分页-->
+    <select id="findByMap" resultMap="ResultMapMashup" parameterType="map">
+        select <include refid="Mashup_field"/>
+        from mashup where
+        <include refid="Mashup_Where"/>
+    </select>
+
+    <!--通过对象查询分页-->
+    <select id="findByEntity" resultMap="ResultMapMashup" parameterType="com.pm.po.Mashup">
+        select <include refid="Mashup_field"/>
+        from mashup where
+        <include refid="Mashup_Where"/>
+    </select>
+
+    <!-- 封装纯sql语法-->
+
+    <!-- 查询一个对象返回实体类-->
+    <select id="getBySqlReturnEntity" resultMap="ResultMapMashup">
+        ${sql}
+    </select>
+
+    <!-- 查询列表返回实体-->
+    <select id="listBySqlReturnEntity" resultMap="ResultMapMashup">
+        ${sql}
+    </select>
+
+    <!-- 查询分页-->
+    <select id="findBySqlRerturnEntity" resultMap="ResultMapMashup">
+        ${sql}
+    </select>
+
+</mapper>
+

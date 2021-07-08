@@ -46,7 +46,12 @@ public class User implements Serializable {
      */
     private String email;
 
-    public User(Integer id, String userName, String passWord, String phone, String realName, String sex, String address, String email) {
+    /**
+     * 角色
+     */
+    private Integer role;
+
+    public User(Integer id, String userName, String passWord, String phone, String realName, String sex, String address, String email, Integer role) {
         this.id = id;
         this.userName = userName;
         this.passWord = passWord;
@@ -55,6 +60,7 @@ public class User implements Serializable {
         this.sex = sex;
         this.address = address;
         this.email = email;
+        this.role = role;
     }
 
     public User() {
@@ -135,6 +141,15 @@ public class User implements Serializable {
                 ", sex='" + sex + '\'' +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
+                ", role=" + role +
                 '}';
+    }
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
     }
 }

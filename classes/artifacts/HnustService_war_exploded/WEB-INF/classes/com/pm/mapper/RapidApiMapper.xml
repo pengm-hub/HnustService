@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pm.mapper.RapidApiMapper">
+
+    <resultMap id="ResultMapRapidApi" type="com.pm.po.RapidApi">
+        <result property="rapid_api_id" column="rapid_api_id" jdbcType="INTEGER"/>
+        <result property="rapid_api_name" column="rapid_api_name" jdbcType="VARCHAR"/>
+        <result property="rapid_api_price" column="rapid_api_price" jdbcType="VARCHAR"/>
+        <result property="rapid_api_rapid" column="rapid_api_rapid" jdbcType="VARCHAR"/>
+        <result property="rapid_api_endpoint" column="rapid_api_endpoint" jdbcType="VARCHAR"/>
+        <result property="rapid_api_des" column="rapid_api_des" jdbcType="VARCHAR"/>
+        <result property="rapid_api_method" column="rapid_api_method" jdbcType="VARCHAR"/>
+        <result property="rapid_api_host" column="rapid_api_host" jdbcType="VARCHAR"/>
+        <result property="rapid_api_key" column="rapid_api_key" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--声明数据块字段-->
+    <sql id="RapidApi_field">
+        rapid_api_id,rapid_api_name,rapid_api_price,rapid_api_rapid,rapid_api_endpoint,rapid_api_des,rapid_api_method,rapid_api_host,rapid_api_key
+    </sql>
+
+    <!--实体类属性-->
+    <sql id="RapidApi_insert">
+        #{rapid_api_id}, #{rapid_api_name}, #{rapid_api_price}, #{rapid_api_rapid}, #{rapid_api_endpoint}, #{rapid_api_des}, #{rapid_api_method},#{rapid_api_host},#{rapid_api_key}
+    </sql>
+
+    <!--查询时条件-->
+    <sql id="RapidApi_where">
+        <if test="rapid_api_id != null"> and rapid_api_id=#{rapid_api_id}</if>
+        <if test="rapid_api_name != null"> and rapid_api_name=#{rapid_api_name}</if>
+        <if test="rapid_api_price != null"> and rapid_api_price=#{rapid_api_price}</if>
+        <if test="rapid_api_rapid != null"> and rapid_api_rapid=#{rapid_api_rapid}</if>
+        <if test="rapid_api_endpoint != null"> and rapid_api_endpoint=#{rapid_api_endpoint}</if>
+        <if test="rapid_api_des != null"> and rapid_api_des=#{rapid_api_des}</if>
+        <if test="rapid_api_method != null"> and rapid_api_method=#{rapid_api_method}</if>
+        <if test="rapid_api_host != null"> and rapid_api_host=#{rapid_api_host}</if>
+        <if test="rapid_api_key != null"> and rapid_api_key=#{rapid_api_key}</if>
+    </sql>
+
+
+    <!-- 查询整个表 -->
+    <select id="listAll" resultMap="ResultMapRapidApi">
+        select <include refid="RapidApi_field"/>
+        from RapidApi
+    </select>
+
+    <!-- 根据主键获取一个实体-->
+    <select id="getById" resultMap="ResultMapRapidApi" parameterType="java.lang.Integer">
+        select <include refid="RapidApi_field"/>
+        from RapidApi where rapid_api_id=#{rapid_api_id}
+    </select>
+
+    <!-- 根据实体获取一个实体-->
+    <select id="getByEntity" resultMap="ResultMapRapidApi" parameterType="com.pm.po.RapidApi">
+        select <include refid="RapidApi_field"/>
+        from RapidApi where 1=1 <include refid="RapidApi_where"/>
+    </select>
+
+    <!-- 通过map查询分页-->
+    <select id="findByMap" resultMap="ResultMapRapidApi" parameterType="map">
+        select <include refid="RapidApi_field"/>
+        from RapidApi where
+        <include refid="RapidApi_where"/>
+    </select>
+
+    <!--通过对象查询分页-->
+    <select id="findByEntity" resultMap="ResultMapRapidApi" parameterType="com.pm.po.RapidApi">
+        select <include refid="RapidApi_field"/>
+        from RapidApi where
+        <include refid="RapidApi_where"/>
+    </select>
+
+    <!-- 封装纯sql语法-->
+
+    <!-- 查询一个对象返回实体类-->
+    <select id="getBySqlReturnEntity" resultMap="ResultMapRapidApi">
+        ${sql}
+    </select>
+
+    <!-- 查询列表返回实体-->
+    <select id="listBySqlReturnEntity" resultMap="ResultMapRapidApi">
+        ${sql}
+    </select>
+
+    <!-- 查询分页-->
+    <select id="findBySqlRerturnEntity" resultMap="ResultMapRapidApi">
+        ${sql}
+    </select>
+
+</mapper>

@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pm.mapper.WebApiMapper">
+
     <resultMap id="ResultMapWebApi" type="com.pm.po.WebApi">
         <result property="api_id" column="api_id" jdbcType="INTEGER"/>
         <result property="api_name" column="api_name" jdbcType="VARCHAR"/>
@@ -10,16 +11,17 @@
         <result property="api_url" column="api_url" jdbcType="VARCHAR"/>
         <result property="api_tags" column="api_tags" jdbcType="VARCHAR"/>
         <result property="api_protocol" column="api_protocol" jdbcType="VARCHAR"/>
+        <result property="api_followers" column="api_followers" jdbcType="INTEGER"/>
     </resultMap>
     
     <!--声明数据块字段-->
     <sql id="WebApi_field">
-        api_id,api_name,api_category,api_describe,api_url,api_tags,api_protocol
+        api_id,api_name,api_category,api_describe,api_url,api_tags,api_protocol,api_followers
     </sql>
 
     <!--实体类属性-->
     <sql id="WebApi_insert">
-        #{api_id}, #{api_name}, #{api_category}, #{api_describe}, #{api_url}, #{api_tags}, #{api_protocol},
+        #{api_id}, #{api_name}, #{api_category}, #{api_describe}, #{api_url}, #{api_tags}, #{api_protocol},#{api_followers},
     </sql>
 
     <!--查询时条件-->
@@ -31,32 +33,14 @@
         <if test="api_url != null"> and api_url=#{api_url}</if>
         <if test="api_tags != null"> and api_tags=#{api_tags}</if>
         <if test="api_protocol != null"> and api_protocol=#{api_protocol}</if>
+        <if test="api_followers != null"> and api_followers=#{api_followers}</if>
     </sql>
 
-
-    <!-- 根据参数查询-->
-    <select id="listByMap" resultMap="ResultMapWebApi" parameterType="map">
-        select <include refid="WebApi_field"/>
-        from webapi where <include refid="WebApi_where"/>
-    </select>
 
     <!-- 查询整个表 -->
     <select id="listAll" resultMap="ResultMapWebApi">
         select <include refid="WebApi_field"/>
         from webapi
-    </select>
-
-    <!-- 查询所有实体,根据实体属性值为判断条件查询所有实体-->
-    <select id="listAllByEntity" resultMap="ResultMapWebApi" parameterType="com.pm.po.WebApi">
-        select <include refid="WebApi_field"/>
-        from webapi where
-        <include refid="WebApi_where"/>
-    </select>
-
-    <!-- 根据主键获取一个实体-->
-    <select id="load" resultMap="ResultMapWebApi" parameterType="java.lang.Integer">
-        select <include refid="WebApi_field"/>
-        from webapi where api_id=#{api_id}
     </select>
 
     <!-- 根据主键获取一个实体-->
@@ -65,18 +49,10 @@
         from webapi where api_id=#{api_id}
     </select>
 
-    <!-- 通过map查询-->
-    <select id="getByMap" resultMap="ResultMapWebApi" parameterType="map">
-        select <include refid="WebApi_field"/>
-        from webapi where
-        <include refid="WebApi_where"/>
-    </select>
-
-    <!--通过对象查询-不分页-->
+    <!-- 根据实体获取一个实体-->
     <select id="getByEntity" resultMap="ResultMapWebApi" parameterType="com.pm.po.WebApi">
         select <include refid="WebApi_field"/>
-        from webapi where
-        <include refid="WebApi_where"/>
+        from webapi where 1=1 <include refid="WebApi_where"/>
     </select>
 
     <!-- 通过map查询分页-->
@@ -94,18 +70,9 @@
     </select>
 
     <!-- 封装纯sql语法-->
-    <!-- 查询一个对象返回map-->
-    <select id="getBySqlReturnMap" resultType="map">
-        ${sql}
-    </select>
 
     <!-- 查询一个对象返回实体类-->
     <select id="getBySqlReturnEntity" resultMap="ResultMapWebApi">
-        ${sql}
-    </select>
-
-    <!-- 查询一个对象返回map列表-->
-    <select id="listBySqlReturnMap" resultType="map">
         ${sql}
     </select>
 

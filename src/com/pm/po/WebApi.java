@@ -10,8 +10,10 @@ public class WebApi implements Serializable {
     private String api_url;
     private String api_tags;
     private String api_protocol;
+    private Integer api_followers;
+    private Float api_score;
 
-    public WebApi(Integer api_id, String api_name, String api_category, String api_describe, String api_url, String api_tags, String api_protocol) {
+    public WebApi(Integer api_id, String api_name, String api_category, String api_describe, String api_url, String api_tags, String api_protocol, Integer api_followers, Float api_score) {
         this.api_id = api_id;
         this.api_name = api_name;
         this.api_category = api_category;
@@ -19,6 +21,8 @@ public class WebApi implements Serializable {
         this.api_url = api_url;
         this.api_tags = api_tags;
         this.api_protocol = api_protocol;
+        this.api_followers = api_followers;
+        this.api_score = api_score;
     }
 
     public WebApi(){}
@@ -79,6 +83,14 @@ public class WebApi implements Serializable {
         this.api_protocol = api_protocol;
     }
 
+    public Integer getApi_followers() {
+        return api_followers;
+    }
+
+    public void setApi_followers(Integer api_followers) {
+        this.api_followers = api_followers;
+    }
+
     @Override
     public String toString(){
         return "WebApi{" +
@@ -89,6 +101,15 @@ public class WebApi implements Serializable {
                 ", api_url='" + api_url + '\'' +
                 ", api_tags='" + api_tags + '\'' +
                 ", api_protocol='" + api_protocol + '\'' +
+                ", api_followers=" + api_followers +
                 '}';
+    }
+
+    public Float getApi_score() {
+        return api_score;
+    }
+
+    public void setApi_score(Float api_score) {
+        this.api_score = api_score;
     }
 }

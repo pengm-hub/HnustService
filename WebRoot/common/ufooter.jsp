@@ -5,10 +5,10 @@
 <%--    <img src="${ctx}/resource/user/images/db.png" alt="">--%>
 <%--</div>--%>
 <!--页脚-->
-<div class="width100 hidden_yh" style="background: #f0f0f0;margin-top: 90px;">
-    <div class="width1200 center_yh tcenter" >
-        <div class="font16 c_33 tcenter" style="margin-top: 6px;">www.valarmorgs.com © Copyright pengm12138@gmail.com 2021-2022</div>
+<div style="margin-top: 90px;">
+    <div>
+        <div style="margin-top: 6px;">© Copyright pengm12138@gmail.com 2021-2022</div>
         <!-- <div class="font16 c_33 tcenter" style="margin-top: 6px;">电话：010-00000000 手机：18390245650</div> -->
-        <div class="font16 c_33 tcenter" style="margin-top: 6px;">京公网安备 xxxxxxxxxx号 </div>
+        <div style="margin-top: 6px;">京公网安备 xxxxxxxxxx号 </div>
     </div>
 </div>

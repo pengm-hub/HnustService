@@ -85,10 +85,10 @@ input,select{font-size:14px;}
 .Selected .downSlide{display:block;}
 #pageNav a{display:block;float:left;width:150px;text-align:center;line-height:45px;height:45px;}
 #pageNav a:hover{letter-spacing:3px;padding-left:6px;padding-right:6px;transition:0.3s;text-decoration:underline;}
-.downSlide{width:230px;height:490px;background:#dd4545;position:absolute;top:45px;left:0;display:none;}
+.downSlide{width:200px;height:490px;background:#dd4545;position:absolute;top:45px;left:0;display:none;}
 #hiddenShow:hover{background:#ff5802;}
 #hiddenShow:hover .downSlide{display:block;}
-.n1Nav{width:270px;height:45px;display:block;line-height:45px;cursor:pointer;}
+.n1Nav{width:200px;height:45px;display:block;line-height:45px;cursor:pointer;}
 .n1Nav font{margin-left:54px;float:left;color:#fff;}
 .n1Nav img{float:right;margin-right:54px;}
 .n1Nav:hover{background:#fff;}
@@ -191,7 +191,8 @@ input,select{font-size:14px;}
 .bjK{width:100%;height:160px;background:#f0f0f0;display:block;overflow:hidden;}
 .bjK img{width:222px;height:160px;transition:0.3s;}
 .listSs li:hover .bjK img{ transform:scale(1.05)}
-.spName{font-size:14px;color:#000;font-weight:100;padding:10px;}
+.spName1{font-size:20px;color:#000;padding:10px;}
+.spName2{font-size:14px;color:#000;font-weight:100;padding:10px;overflow:hidden}
 .wCa{width:100%;height:30px;border-top:1px solid #ddd;position:absolute;bottom:0;left:0;overflow:hidden;}
 .wCa1{width:110px;height:30px;border-right:1px solid #ddd;float:left;overflow:hidden;line-height:30px;}
 .wCa1 b{width:18px;height:16px;display:block;float:left;overflow:hidden;margin-top:6px;margin-left:27px;}
